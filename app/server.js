@@ -10,7 +10,7 @@ const app = new Koa();
 app.use(logger());
 
 // Parses json body requests
-app.use(parser())
+app.use(parser());
 
 // 500
 app.use(async (ctx, next) => {
