@@ -1,15 +1,17 @@
-import router from 'koa-simple-router';
+import router from 'koa-simple-router'
 
-export default router(r => {
-  r.get('/', (ctx, next) => {
-    ctx.body = {
-      message: 'Hello world!'
-    };
-  });
+export default () => {
+  return router(r => {
+    r.get('/', (ctx, next) => {
+      ctx.body = {
+        message: 'Hello world!'
+      }
+    })
 
-  r.get('/user', (ctx, next) => {
-    ctx.body = {
-      message: 'User!'
-    };
-  });
-});
+    r.get('/user', (ctx, next) => {
+      ctx.body = {
+        message: 'User!'
+      }
+    })
+  })
+}

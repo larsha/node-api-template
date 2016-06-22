@@ -1,37 +1,37 @@
-import Koa from 'koa';
-import router from 'koa-simple-router';
-import logger from 'koa-logger';
-import parser from 'koa-bodyparser';
-import routes from './routes';
+import Koa from 'koa'
+import router from 'koa-simple-router'
+import logger from 'koa-logger'
+import parser from 'koa-bodyparser'
+import routes from './routes'
 
-const app = new Koa();
+const app = new Koa()
 
 // Logs information
-app.use(logger());
+app.use(logger())
 
 // Parses json body requests
-app.use(parser());
+app.use(parser())
 
 // 500
 app.use(async (ctx, next) => {
   try {
-    await next();
+    await next()
   } catch (err) {
-    ctx.status = err.status || 500;
-    ctx.body = { message: err.message };
+    ctx.status = err.status || 500
+    ctx.body = { message: err.message }
   }
-});
+})
 
 // Setup routes
-app.use(routes);
+app.use(routes())
 
 // 404
 app.use(async ctx => {
   ctx.body = {
     message: 'Move Along, Nothing to See Here!'
-  };
-});
+  }
+})
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000)
 
-export default app;
+export default app
