@@ -9,7 +9,6 @@
   "scripts": {
     "build": "rm -rf .build && cp -rf app .build && babel app -d .build",
     "start": "npm run build && node .build/server.js",
-    "postinstall": "npm run build",
     "dev": "nodemon app/server.js --exec babel-node"
   },
   "author": "Fredrik Lack <fredrik@nody.se>",
