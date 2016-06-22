@@ -1,7 +1,16 @@
 import Koa from 'koa';
 import router from 'koa-simple-router';
+import logger from 'koa-logger';
+import parser from 'koa-bodyparser';
+import routes from './routes';
 
 const app = new Koa();
+
+// Logs information
+app.use(logger());
+
+// Parses json body requests
+app.use(parser())
 
 // 500
 app.use(async (ctx, next) => {
@@ -13,20 +22,8 @@ app.use(async (ctx, next) => {
   }
 });
 
-// Routes
-app.use(router(r => {
-  r.get('/', (ctx, next) => {
-    ctx.body = {
-      message: 'Hello world!'
-    };
-  });
-
-  r.get('/user', (ctx, next) => {
-    ctx.body = {
-      message: 'User!'
-    };
-  });
-}));
+// Setup routes
+app.use(routes);
 
 // 404
 app.use(async ctx => {
@@ -36,3 +33,5 @@ app.use(async ctx => {
 });
 
 app.listen(process.env.PORT || 3000);
+
+export default app;
