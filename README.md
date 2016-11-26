@@ -1,6 +1,6 @@
 ## Synopsis
 
-Simple Node.js API template built on Koa 2 using Babel for async/await support.
+Simple Node.js (API, etc) template built on Koa 2.
 
 ## License
 

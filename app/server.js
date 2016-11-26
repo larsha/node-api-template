@@ -1,5 +1,4 @@
 import Koa from 'koa'
-import router from 'koa-simple-router'
 import logger from 'koa-logger'
 import parser from 'koa-bodyparser'
 import routes from './routes'
@@ -32,6 +31,6 @@ app.use(async ctx => {
   }
 })
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT)
 
 export default app
