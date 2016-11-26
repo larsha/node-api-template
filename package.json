@@ -9,8 +9,8 @@
   "scripts": {
     "build": "rm -rf .build && cp -rf app .build && babel app -d .build",
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec --compilers js:babel-core/register --colors app/test/*.spec.js",
-    "start": "npm run build && node .build/server.js",
-    "dev": "DEBUG=koa* nodemon --debug app/server.js --exec babel-node"
+    "start": "npm run build && node --harmony-async-await .build/server.js",
+    "dev": "DEBUG=koa* nodemon --harmony --debug app/server.js --exec babel-node"
   },
   "author": "Fredrik Lack <fredrik@brynn.se>",
   "license": "ISC",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "babel-cli": "6.10.1",
     "babel-eslint": "6.0.5",
-    "babel-preset-latest": "6.16.0",
+    "babel-preset-node7": "1.4.0",
     "chai": "3.5.0",
     "chai-as-promised": "6.0.0",
     "istanbul": "0.4.5",
