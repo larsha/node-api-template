@@ -8,7 +8,7 @@
   },
   "scripts": {
     "build": "rm -rf .build && cp -rf app .build && babel app -d .build",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec --compilers js:babel-core/register --colors app/test/*.spec.js",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec --harmony --colors app/test/*.spec.js",
     "start": "npm run build && node --harmony-async-await .build/server.js",
     "dev": "DEBUG=koa* nodemon --harmony --debug app/server.js --exec babel-node"
   },
